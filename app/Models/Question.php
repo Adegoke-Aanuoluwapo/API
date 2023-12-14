@@ -5,11 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Invoice extends Model
+class Question extends Model
 {
     use HasFactory;
-    function Customer()
-    {
-        return $this->belongsTo(Customer::class);
-    }
+    protected $fillable = ['question', 'answer_a', 'answer_b', 'answer_c'];
 }
