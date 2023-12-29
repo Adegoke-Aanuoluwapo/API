@@ -80,6 +80,14 @@ public function homepage(){
         //
     }
 
+    public function personalpost()
+    {
+        $user =Auth::User();
+        $userid = $user->id;
+        $data =Post::where('user_id', '=',$userid)->get();
+        return view('home.mypost', compact('data') );
+    }
+
     /**
      * Display the specified resource.
      */
@@ -95,7 +103,8 @@ public function homepage(){
      */
     public function edit(string $id)
     {
-        //
+        $post =Post::find($id);
+        return view('home.edit_post', compact('post'));
     }
 
     /**
@@ -111,6 +120,9 @@ public function homepage(){
      */
     public function destroy(string $id)
     {
-        //
+        $data =Post::find($id);
+        $data->delete();
+
+        return redirect()->back()->with('Data deleted successfully');
     }
 }
