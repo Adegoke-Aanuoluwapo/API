@@ -47,4 +47,5 @@ Route::get('/mypost', [HomeController::class, 'personalpost'])->middleware('auth
 Route::post('/createpost', [HomeController::class, 'create'])->middleware('auth');
 Route::get('/del_post/{id}', [HomeController::class, 'destroy'])->middleware('auth');
 Route::get('/edit_post/{id}', [HomeController::class, 'edit'])->middleware('auth');
+Route::get('/accept_post/{id}', [AdminController::class, 'acceptpost'])->middleware('auth');
 Route::post('/updating_post/{id}', [HomeController::class, 'update'])->middleware('auth');

@@ -80,6 +80,14 @@ $imagename =time().'.'.$image->getClientOriginalExtension();
 
     }
 
+    public function acceptpost($id)
+    {
+        $post =Post::find($id);
+        $post -> post_status = 'active' ;
+        $post -> save() ;
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
