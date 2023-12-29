@@ -40,9 +40,31 @@ public function homepage(){
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $user = Auth()->user();
+        $userid = $user->id;
+        $name = $user->name;
+        $usertype = $user->usertype;
+        $post = new Post;
+        $post->title= $request->title;
+        $post->description=$request->description;
+        $post->user_id=$userid;
+        $post->name=$name;
+         $post->post_status ='pending';
+        $post->usertype=$usertype;
+        $image = $request->image;
+        if($image){
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+            $request->image->move('postimage',$imagename);
+            $post->image=$imagename;
+        }
+
+
+        $post->save();
+
+        return redirect()->back();
+        
     }
 
     function createpost(){

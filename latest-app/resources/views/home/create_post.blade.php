@@ -23,7 +23,7 @@
 
 <div class="text-center">
     <h1 class="text-white" style="font-size:30px; font-weight:bold; padding:30px ">Add a Post</h1>
-    <form action="{{url('createpost')}}" enctype="multipart/form-data">
+    <form action="{{url('createpost')}}" enctype="multipart/form-data" method="POST">
         @csrf
         <div class="field_deg">
             <label for="">Title</label>

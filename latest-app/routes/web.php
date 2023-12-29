@@ -42,4 +42,5 @@ Route::get('/deletepost/{id}', [AdminController::class, 'destroy']);
 Route::get('/edit_page/{id}', [AdminController::class, 'edit']);
 Route::post('/update_page/{id}', [AdminController::class, 'update']);
 Route::get('/blogpost/{id}', [HomeController::class, 'show']);
-Route::get('/create_post', [HomeController::class, 'createpost']);
+Route::get('/create_post', [HomeController::class, 'createpost'])->middleware('auth');
+Route::post('/createpost', [HomeController::class, 'create'])->middleware('auth');
