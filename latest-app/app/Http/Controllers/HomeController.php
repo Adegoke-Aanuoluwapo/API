@@ -45,6 +45,9 @@ public function homepage(){
         //
     }
 
+    function createpost(){
+        return view('home.create_post');
+    }
     /**
      * Store a newly created resource in storage.
      */
@@ -58,7 +61,7 @@ public function homepage(){
      */
     public function show(string $id)
     {
-        $post = Post::all();
+        $post = Post::find($id);
 
         return view('home.blogpost', compact('post'));
     }

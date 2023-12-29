@@ -13,7 +13,7 @@
                         <li class="nav-item">
                            <a class="nav-link" href="about.html">About</a>
                         </li>
-                      
+
                         <li class="nav-item">
                            <a class="nav-link " href="blog.html">Blog</a>
                         </li>
@@ -30,24 +30,25 @@
                   <ul>
                      <li class="active"><a href="index.html">Home</a></li>
                      <li><a href="about.html">About</a></li>
-                     
+
                      <li><a href="blog.html">Blog</a></li>
                      @if (Route::has('login'))
 
                      @auth
                      <li>
                       <x-app-layout>
-    
+
                       </x-app-layout>
                      </li>
-                     
+
+                              <li><a href="{{url('create_post')}}">Create Post</a></li>
 
 
                     @else
 
                      <li><a href="{{route('login')}}">Login</a></li>
                      <li><a href="{{route('register')}}">Register</a></li>
-                    
+
                      @endauth
 
                      @endif
