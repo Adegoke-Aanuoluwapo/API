@@ -32,6 +32,14 @@
       <!-- header section start -->
       <div class="header_section">
         @include('home.header')
+  @if(session()->has('message'))
+       <div class="alert alert-success" role="alert">
+
+        <button type="button" class="close" data-dismiss ="alert" aerial-hidden="true"></button>
+        {{ session()->get('message') }}
+       </div>
+       @endif
+
         @foreach ($data as $data)
             
         

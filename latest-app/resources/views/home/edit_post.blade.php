@@ -21,9 +21,17 @@
       <div class="header_section">
         @include('home.header')
 
+          @if(session()->has('message'))
+       <div class="alert alert-success" role="alert">
+
+        <button type="button" class="close" data-dismiss ="alert" aerial-hidden="true"></button>
+        {{ session()->get('message') }}
+       </div>
+       @endif
+
           <div class="text-center bg-dark">
     <h1 class="text-white" style="font-size:30px; font-weight:bold; padding:30px ">Edit a Post</h1>
-    <form action="{{url('updating_post')}}" enctype="multipart/form-data" method="POST">
+    <form action="{{url('updating_post', $post->id)}}" enctype="multipart/form-data" method="POST">
         @csrf
         <div class="field_deg">
             <label for="">Title</label>

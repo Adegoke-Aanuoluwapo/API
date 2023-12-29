@@ -17,7 +17,7 @@ class HomeController extends Controller
     {
 
         if(Auth::id()){
-            $post =Post::all();
+            $post =Post::where('post_status','=','active')->get();
             $usertype = Auth()->user()->usertype;
             if($usertype == 'user'){
                 return view('home.homepage',compact('post'));  //for user home page
@@ -33,7 +33,7 @@ class HomeController extends Controller
     }
 
 public function homepage(){
-        $post = Post::all();
+        $post = Post::where('post_status','=','active')->get();
     return view('home.homepage', compact('post'));
 }
 
@@ -112,7 +112,22 @@ public function homepage(){
      */
     public function update(Request $request, string $id)
     {
-        //
+        $post =Post::find($id);
+        $post->title=$request->title;
+         $post->description=$request->description;
+        $image =$request->image;
+
+        if($image)
+        {
+          $imagename=time().'.'.$image->getClientOriginalExtension();  
+          $request->image->move('postimage', $imagename);
+
+          $post->image=$imagename;
+        }
+        $post->save();
+
+        return redirect()->back()->with('message','Post Updated successfully');
+
     }
 
     /**

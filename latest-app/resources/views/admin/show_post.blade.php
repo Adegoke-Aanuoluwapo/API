@@ -52,6 +52,8 @@
           <th>Image</th>
           <th>Edit</th>
           <th>Delete</th>
+          <th>Status Accepted</th>
+          <th>Status Rejected</th>
          </tr>
            @foreach ($post as $post)
            <tr>
@@ -64,6 +66,8 @@
             <td><img src="postimage/{{$post->image}}" width=50 height=50></td>
             <td><a href="{{url('edit_page',$post->id)}}" class="btn btn-success" onclick="confirmation(event)"> Edit</a></td>
             <td><a href="{{url('deletepost',$post->id)}}" class="btn btn-danger" onclick="confirmation(event)"> Delete</a></td>
+            <td><a href="" class="btn btn-outline-secondary">Accepted</a></td>
+            <td><a href="" class="btn btn-danger">Rejected</a></td>
            </tr>
       
        @endforeach
