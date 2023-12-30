@@ -35,7 +35,7 @@
        @if(session()->has('message'))
        <div class="alert alert-success" role="alert">
 
-        <button type="button" class="close" data-dismiss ="alert" aerial-hidden="true"></button>
+        <button type="button" class="close" data-dismiss ="alert" aerial-hidden="true">x</button>
         {{ session()->get('message') }}
        </div>
        @endif
@@ -66,8 +66,8 @@
             <td><img src="postimage/{{$post->image}}" width=50 height=50></td>
             <td><a href="{{url('edit_page',$post->id)}}" class="btn btn-success" onclick="confirmation(event)"> Edit</a></td>
             <td><a href="{{url('deletepost',$post->id)}}" class="btn btn-danger" onclick="confirmation(event)"> Delete</a></td>
-            <td><a href="{{url('accept_post',$post->id)}}" class="btn btn-outline-secondary">Accepted</a></td>
-            <td><a href="" class="btn btn-danger">Rejected</a></td>
+            <td><a onclick="return confirm('Are you sure to accept this post ?')" href="{{url('accept_post',$post->id)}}" class="btn btn-outline-secondary">Accepted</a></td>
+            <td><a onclick="return confirm('Are you sure to reject this post ?')" href="{{url('reject_post', $post->id)}}" class="btn btn-danger">Rejected</a></td>
            </tr>
       
        @endforeach

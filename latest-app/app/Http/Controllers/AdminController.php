@@ -79,12 +79,22 @@ $imagename =time().'.'.$image->getClientOriginalExtension();
         
 
     }
+    public function rejectpost($id){
+        $post =Post::find($id);
+         $post -> post_status = 'rejected' ;
+        $post -> save() ;
+
+        return  redirect()->back()->with('message', 'Post rejected successfully');
+
+    }
 
     public function acceptpost($id)
     {
         $post =Post::find($id);
         $post -> post_status = 'active' ;
         $post -> save() ;
+
+        return  redirect()->back()->with('message', 'Post status changed to active');
 
     }
 
