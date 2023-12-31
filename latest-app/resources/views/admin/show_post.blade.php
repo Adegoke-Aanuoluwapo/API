@@ -74,7 +74,7 @@
      
 
         </table>
-     
+     <h1>{{$total_post}}</h1> 
       </div>
    
        @include('admin.footer')

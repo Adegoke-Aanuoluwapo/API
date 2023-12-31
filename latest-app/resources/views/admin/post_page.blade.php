@@ -13,6 +13,7 @@
     }
     .text-center{
      padding: 30px;
+     margin: auto;
     }
    </style>
   </head>
@@ -32,29 +33,33 @@
        </div>
        @endif
 
-        <h1 class="post_title"> Add Post</h1>
-        <form action="{{url('add_post')}}" method="POST" enctype="multipart/form-data">
+  
+        <div class="col-lg-8 text-center">
+                <div class="block">
+                  <div class="title"><strong class="d-block">Add Post</strong><span class="d-block">Post your info and let people be informed</span></div>
+                  <div class="block-body">
+                 <form action="{{url('add_post')}}" method="POST" enctype="multipart/form-data">
          @csrf
-         <div class="text-center">
-          <label for="fname" >Post Title :</label><br>
-          <input type="text" class="" id="fname" name="title" required><br>
-         </div>
-         <div class="text-center">
-          <label for="fname" >Post Description :</label><br>
-          <textarea type="text" id="fname" class="form-cntrol" name="description" required></textarea><br>
-         </div>
-         <div class="text-center">
-          <label for="fname" >Add Image :</label><br>
-          <input type="file" id="fname" name="image" ><br>
-         </div>
-
-         <div class="text-center">
-         
-          <input type="submit" class="btn btn-primary" id="fname"  ><br>
-         </div>
-
-        </form>
-      </div>
+                      <div class="form-group">
+                        <label class="form-control-label">Title</label>
+                        <input type="text" placeholder="Title" class="form-control" name="title">
+                      </div>
+                      <div class="form-group">       
+                        <label class="form-control-label">Description</label>
+                        <input type="text" placeholder="Description" class="form-control" name="description">
+                      </div>
+                       <div class="form-group">       
+                        <label class="form-control-label">Image</label>
+                        <input type="file" placeholder="Description" class="form-control" name="image">
+                      </div>
+                      <div class="form-group">       
+                        <input type="submit" value="Submit" class="btn btn-primary">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+           
    
        @include('admin.footer')
   </body>

@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use Alert;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 class HomeController extends Controller
 {
     /**
@@ -32,6 +34,18 @@ class HomeController extends Controller
 
     }
 
+    public function totalPost(){
+
+        try{
+             $total_post = Post::count();
+        }catch(\Exception $e){
+            Log::error("Total post error".$e->getMessage());
+            Log::error($e);
+        }
+       
+   
+       return view('admin.show_post',compact('post'));
+    }
 public function homepage(){
         $post = Post::where('post_status','=','active')->get();
     return view('home.homepage', compact('post'));
