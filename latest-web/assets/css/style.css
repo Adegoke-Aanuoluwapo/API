@@ -53,3 +53,34 @@ position: relative;
 list-style: none;
 width: 100%;
 }
+
+.navigation ul li:hover{
+  background-color: var(--white);
+}
+.navigation ul li:nth-child(1){
+  margin-bottom: 48px;
+  pointer-events: none;
+}
+.navigation ul li a{
+ position: relative;
+display: block;
+ width: 100%;
+ display: flex;
+ text-decoration: none; 
+ color: var(--white);
+}
+.navigation ul li:hover a{
+  background-color: var(--blue);
+}
+.navigation ul li a .icon{
+position: relative;
+display: block;
+min-width: 60px;
+height: 60px;
+line-height: 60px;
+text-align: center;
+}
+
+.navigation ul li a .icon icon-icon{
+
+}
