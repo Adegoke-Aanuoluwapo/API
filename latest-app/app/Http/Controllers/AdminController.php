@@ -63,6 +63,10 @@ $imagename =time().'.'.$image->getClientOriginalExtension();
 
     }
 
+    function test(){
+        return view('admin.test2');
+    }
+
     /**
      * Store a newly created resource in storage.
      */

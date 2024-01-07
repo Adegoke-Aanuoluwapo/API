@@ -57,11 +57,18 @@ list-style: none;
 
 }
 
+.navigation ul li:hover,
+.navigation ul li.hovered{
+  background-color: var(--white);
+}
+
 
 .navigation ul li:nth-child(1){
   margin-bottom: 48px;
   pointer-events: none;
 }
+
+
 .navigation ul li a{
  position: relative;
 display: block;
@@ -71,7 +78,8 @@ display: block;
  color: var(--white);
 }
 
-.navigation ul li:hover a{
+.navigation ul li:hover a,
+.navigation ul li.hovered a{
   color: var(--blue);
   background-color: var(--white);
   border-top-left-radius: 30px;
@@ -106,7 +114,8 @@ font-size: 1.75rem;
 }
 
       /* -------------- curve outside --------------- */
-.navigation ul li:hover a::before{
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before{
   content: "";
   position: absolute;
   right: 0;
@@ -120,7 +129,8 @@ font-size: 1.75rem;
 }
 
 
-.navigation ul li:hover a::after{
+.navigation ul li:hover a::after,
+.navigation ul li.hovererd a::after{
   content: "";
   position: absolute;
   right: 0;

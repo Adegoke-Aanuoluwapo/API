@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head> 
+
+  
+   
+  
+
    @include('admin.admincss')
     
-   <style>
-    .post_title{
-     font-size:30px;
-     font-weight: bold;
-     text-align: center;
-      padding: 30px;
-      color: white;
-    }
-    .text-center{
-     padding: 30px;
-     margin: auto;
-    }
-   </style>
-  </head>
+  
   <body>
+
+
   @include('admin.header')
+
+  
     <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
       @include('admin.sidebar')
@@ -32,35 +27,35 @@
         {{ session()->get('message') }}
        </div>
        @endif
-
-  
-        <div class="col-lg-8 text-center">
+   
+        <div class="col-lg-8 ">
                 <div class="block">
                   <div class="title"><strong class="d-block">Add Post</strong><span class="d-block">Post your info and let people be informed</span></div>
-                  <div class="block-body">
+                  <div class="block-body" style="">
                  <form action="{{url('add_post')}}" method="POST" enctype="multipart/form-data">
          @csrf
                       <div class="form-group">
                         <label class="form-control-label">Title</label>
-                        <input type="text" placeholder="Title" class="form-control" name="title">
+                        <input type="text" placeholder="Title" class=" form-control " name="title" style="background: transparent">
                       </div>
                       <div class="form-group">       
                         <label class="form-control-label">Description</label>
-                        <input type="text" placeholder="Description" class="form-control" name="description">
+                        
+                        <textarea type="text" placeholder="Description" class="form-control" name="description" style="background: transparent"></textarea>
                       </div>
                        <div class="form-group">       
                         <label class="form-control-label">Image</label>
-                        <input type="file" placeholder="Description" class="form-control" name="image">
+                        <input type="file" placeholder="Description" class="form-control" name="image" style="background: transparent">
                       </div>
                       <div class="form-group">       
-                        <input type="submit" value="Submit" class="btn btn-primary">
+                        <input type="submit" value="Submit" class="btn btn-primary" style="background:#f18c99;">
                       </div>
                     </form>
                   </div>
                 </div>
               </div>
+       
            
    
        @include('admin.footer')
-  </body>
-</html>
+  

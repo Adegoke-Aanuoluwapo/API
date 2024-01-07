@@ -60,7 +60,7 @@
         <!-- Email Address -->
         <div class="form-group">
             
-            <input id="email" class="input-material" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <input id="email" class="input-material" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" style="background-color: transparent"/>
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
@@ -77,7 +77,7 @@
         
                     </div>
                     
-                     <x-primary-button class="btn btn-primary">
+                     <x-primary-button class="btn btn-primary" style="margin-top:30px">
                 {{ __('Log in') }}
             </x-primary-button>
                    

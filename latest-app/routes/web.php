@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+Route::get('/test2', [AdminController::class, 'test']);
 Route::post('/add_post', [AdminController::class, 'create']);
 Route::get('/deletepost/{id}', [AdminController::class, 'destroy']);
 Route::get('/edit_page/{id}', [AdminController::class, 'edit']);
