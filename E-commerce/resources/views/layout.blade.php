@@ -86,14 +86,17 @@ div.content {
 
           <div class="sidebar">
             <a class="active" href="#home">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
+            <a href="#news">Student</a>
+            <a href="#contact">Teachers</a>
+            <a href="#about">Guardians</a>
+              <a href="#about">Courses</a>
+                <a href="#about">Enrollment</a>
+                  <a href="#about">Payment</a>
           </div>
 
           <div class="col-md-9">
             <div class="content">
-              Text
+              @yield('content')
             </div>
           </div>
 
