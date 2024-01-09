@@ -66,50 +66,43 @@ div.content {
 
 </head>
 <body>
- <div class="container-fluid">
-  <div class="row">
-   <div class="col-md-12">
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#"><h2>Student Management System<h2></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><h2>Student Management System<h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>  
+        </nav>
+      </div>
+    </div>
   
-</nav>
-</div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
- 
-
-
-          <div class="sidebar">
-            <a class="active" href="#home">Home</a>
-            <a href="#news">Student</a>
-            <a href="#contact">Teachers</a>
-            <a href="#about">Guardians</a>
-              <a href="#about">Courses</a>
-                <a href="#about">Enrollment</a>
-                  <a href="#about">Payment</a>
+    <div class="row">
+      <div class="col-md-3">
+         <div class="sidebar">
+              <a class="active" href="{{url('layout')}}">Home</a>
+              <a href="{{url('/student')}}">Student</a>
+              <a href="{{url('/teacher')}}">Teachers</a>
+              <a href="{{url('/guardian')}}">Guardians</a>
+              <a href="{{url('/courses')}}">Courses</a>
+              <a href="{{url('/enrolment')}}">Enrollment</a>
+              <a href="{{url('/payment')}}">Payment</a>
           </div>
+      </div>    
 
-          <div class="col-md-9">
-            <div class="content">
-              @yield('content')
-            </div>
-          </div>
-
-
-
+      <div class="col-md-9">
+              
+                @yield('content')      
+      </div>
     </div>
   </div>
- </div>
+  
 
 
 
 
- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
