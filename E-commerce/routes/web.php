@@ -15,17 +15,18 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/layout', function () {
+Route::get('/', function () {
     return view('layout');
 });
-Route::get('/student', [StudentController::class, 'index']);
-Route::get('/create', [StudentController::class, 'create']);
-Route::post('create', [StudentController::class, 'store']);
-Route::get("/show_student/{{'id'}}", [StudentController::class, 'display']);
+// Route::get('/edit/{"id"}', [StudentController::class, 'edit']);
+Route::resource('/student', StudentController::class);
+// Route::get('/create', [StudentController::class, 'create']);
+// Route::post('create', [StudentController::class, 'store']);
+// Route::get("/show_student/{{'id'}}", [StudentController::class, 'display']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

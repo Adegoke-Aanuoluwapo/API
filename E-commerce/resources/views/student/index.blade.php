@@ -31,10 +31,12 @@
 
                       <td>
                     
-                          <a href="{{url('show_student/'. $student->id)}}"  title="view student"><button class="btn btn-sucess-sm">View</button></a>
-                          <a href="{{url('student/' .$student->id)}}"  title="Delete " ><button class="btn btn-success">Delete</button></a>
-                          <form action="{{url('student/' .$student->id)}}" accept-charset="utf-8">
-                            <button class="btn btn-danger btn-sm" onclick="reset">Edit
+                          <a href="{{url('student/'. $student->id)}}"  title="view student"><button class="btn btn-sucess-sm">View</button></a>
+                          <a href="{{url('student/' .$student->id. '/edit')}}"  title="edit " ><button class="btn btn-success">Edit</button></a>
+                          <form action="{{url('student/' . $student->id)}}" accept-charset="utf-8" method="POST">
+                            {{method_field('DELETE')}}
+                            {{csrf_field()}}
+                            <button type="submit" class="btn btn-danger btn-sm" >Delete
                             </button>
                           </form>
                       </td>
