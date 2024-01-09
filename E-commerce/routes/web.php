@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,7 @@ Route::get('/', function () {
 });
 // Route::get('/edit/{"id"}', [StudentController::class, 'edit']);
 Route::resource('/student', StudentController::class);
+Route::resource('/teacher', TeacherController::class);
 // Route::get('/create', [StudentController::class, 'create']);
 // Route::post('create', [StudentController::class, 'store']);
 // Route::get("/show_student/{{'id'}}", [StudentController::class, 'display']);
