@@ -7,9 +7,9 @@
   <h2>Teacher</h2>
   </div>
   <div class="card-body">
-    <div class="card-title">Name:{{$student->name}}</div>
-    <p class="card-text">Address:{{$student->address}}</p>
-    <p class="card-text">Mobile:{{$student->mobile}}</p>
+    <div class="card-title">Name:{{$teacher->name}}</div>
+    <p class="card-text">Address:{{$teacher->address}}</p>
+    <p class="card-text">Mobile:{{$teacher->mobile}}</p>
   </div>
 
 </div>

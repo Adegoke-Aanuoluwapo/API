@@ -6,34 +6,34 @@
           <h2>Laravel 10 Crud</h2>
           </div>
           <div class="card-body">
-            <a href="{{url('/teacher/create')}}" class="btn btn-success btn-sm" title="Add new Student"><i class="fa fa-plus" area-hidden="true">Teacher Application</i></a>
+            <a href="{{url('/course/create')}}" class="btn btn-success btn-sm" title="Add new Student"><i class="fa fa-plus" area-hidden="true">Course Registration</i></a>
             <br />
             <hr />
             <div class="table-responsive">
               <table class="table">
                 <thead>
                   <tr>
-                      <th>#</th>
+                      <th>s/n</th>
                       <th> Name</th>
-                      <th>Address</th>
-                      <th>Mobile</th>
+                      <th>Syllabus</th>
+                      <th>Duration</th>
                       <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                 @foreach($teachers as $teacher)
+                 @foreach($courses as $course)
                   <tr>
 
-                      <td>{{$teacher->id}}</td>
-                      <td>{{$teacher->name}}</td>
-                      <td>{{$teacher->address}}</td>
-                      <td>{{$teacher->mobile}}</td>
+                      <td>{{$loop->iteration}}</td>
+                      <td>{{$course->name}}</td>
+                      <td>{{$course->syllabus}}</td>
+                      <td>{{$course->duration}}</td>
 
                       <td>
                     
-                          <a href="{{url('teacher/'. $teacher->id)}}"  title="view teacher"><button class="btn btn-sucess-sm">View</button></a>
-                          <a href="{{url('teacher/' .$teacher->id. '/edit')}}"  title="edit " ><button class="btn btn-success">Edit</button></a>
-                          <form action="{{url('teacher/' . $teacher->id)}}" accept-charset="utf-8" method="POST">
+                          <a href="{{url('course/'. $course->id)}}"  title="view course"><button class="btn btn-sucess-sm">View</button></a>
+                          <a href="{{url('course/' .$course->id. '/edit')}}"  title="edit " ><button class="btn btn-success">Edit</button></a>
+                          <form action="{{url('course/' . $course->id)}}" accept-charset="utf-8" method="POST">
                             {{method_field('DELETE')}}
                             {{csrf_field()}}
                             <button type="submit" class="btn btn-danger btn-sm" >Delete

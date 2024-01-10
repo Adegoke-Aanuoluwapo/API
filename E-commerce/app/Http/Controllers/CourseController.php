@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Teacher;
+use App\Models\Course;
 
-class TeacherController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,10 @@ class TeacherController extends Controller
     public function index()
     {
         //
-        $teachers = Teacher::all();
+        $courses = Course::all();
 
 
-        return view('teachers.index')->with('teachers', $teachers);
+        return view('courses.index')->with('courses', $courses);
     }
 
     /**
@@ -25,7 +25,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        return view('teachers.create');
+        return view('courses.create');
     }
 
     /**
@@ -34,8 +34,8 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        Teacher::create($input);
-        return redirect('teacher')->with('flash_message', 'Teacher added successfully');
+        Course::create($input);
+        return redirect('course')->with('flash_message', 'Course added successfully');
 
     }
 
@@ -45,10 +45,10 @@ class TeacherController extends Controller
     public function show(string $id)
     {
         //
-        $teacher = Teacher::find($id);
+        $course = Course::find($id);
 
 
-        return view('teachers.show', compact('teacher'));
+        return view('courses.show', compact('course'));
     }
 
     /**
@@ -56,8 +56,8 @@ class TeacherController extends Controller
      */
     public function edit(string $id)
     {
-        $teacher = Teacher::find($id);
-        return view('teachers.edit', compact('teacher'));
+        $course = Course::find($id);
+        return view('courses.edit', compact('course'));
     }
 
     /**
@@ -66,10 +66,10 @@ class TeacherController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $teacher = Teacher::find($id);
+        $course = Course::find($id);
         $input = $request->all();
-        $teacher->update($input);
-        return redirect('teacher')->with('flash_message', 'Teacher updated successfully');
+        $course->update($input);
+        return redirect('course')->with('flash_message', 'Course updated successfully');
     }
 
     /**
@@ -77,14 +77,14 @@ class TeacherController extends Controller
      */
     public function destroy(string $id)
     {
-        Teacher::destroy($id);
-        return redirect('teacher')->with('flash_message', 'Teacher deleted!');
+        Course::destroy($id);
+        return redirect('course')->with('flash_message', 'Course deleted!');
     }
 
     public function display($id)
     {
         // try{
-        $student = Teacher::find($id);
+        $student = Course::find($id);
         \Log::info($student);
         // }
         // except($e->message){
