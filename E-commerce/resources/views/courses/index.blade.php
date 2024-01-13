@@ -27,7 +27,7 @@
                       <td>{{$loop->iteration}}</td>
                       <td>{{$course->name}}</td>
                       <td>{{$course->syllabus}}</td>
-                      <td>{{$course->duration}}</td>
+                      <td>{{$course->duration()}}</td>
 
                       <td>
                     

@@ -12,4 +12,15 @@ class Enrollment extends Model
    
     protected $fillable = ['enrol_no', 'batch_id', 'student_id','join_date', 'fee'];
     use HasFactory;
+
+
+    function batch()
+    {
+        return $this->belongsTo(Batch::class);
+    }
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
 }
+

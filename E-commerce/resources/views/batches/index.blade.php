@@ -26,7 +26,7 @@
 
                       <td>{{$loop->iteration}}</td>
                       <td>{{$batch->name}}</td>
-                      <td>{{$batch->course_id}}</td>
+                      <td>{{$batch->course->name}}</td>
                       <td>{{$batch->start_date}}</td>
 
                       <td>

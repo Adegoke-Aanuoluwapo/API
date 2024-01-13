@@ -11,7 +11,7 @@
    <label for="">Course</label><br>
   {{-- <input type="number" name="course_id" id="address" class="form-control"><br> --}}
   <select name="course_id" id="" class="form-control">
-   @foreach($courses as $course)
+   @foreach($courses as $id => $name)
     <option value="{{$id}}">{{$name}}</option>
     @endforeach
   </select>

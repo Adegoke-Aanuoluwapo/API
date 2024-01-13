@@ -26,8 +26,8 @@
                   <tr>
                       <td>{{$loop->iteration}}</td>
                       <td>{{$enrollment->enrol_no}}</td>
-                      <td>{{$enrollment->batch_id}}</td>
-                      <td>{{$enrollment->student_id}}</td>
+                      <td>{{$enrollment->batch->name}}</td>
+                      <td>{{$enrollment->student->name}}</td>
                       <td>{{$enrollment->join_date}}</td>
                       <td>{{$enrollment->fee}}</td>
 

@@ -11,7 +11,12 @@
    <label for="">Batch ID</label><br>
   <input type="tel" name="batch_id" id="address" class="form-control"><br>
    <label for="">Student ID</label><br>
-  <input type="tel" name="student_id" id="name" class="form-control"><br>
+ <select name="student_id" id="" class="form-control">
+  @foreach( $student as $id => $name)
+  <option value='{{$id}}'> {{$name}}</option>
+  @endforeach
+ </select>
+   
    <label for="">Join Date</label><br>
   <input type="text" name="join_date" id="name" class="form-control"><br>
    <label for="">Fee</label><br>
