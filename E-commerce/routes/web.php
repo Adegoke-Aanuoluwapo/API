@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\BatchController;
+use App\Http\Controllers\EnrolmentController;
 
 
 /*
@@ -42,6 +44,20 @@ Route::get('/course/{id}', [CourseController::class, 'show']);
 Route::get('/course/{id}/edit', [CourseController::class, 'edit']);
 Route::PATCH('/course/{id}', [CourseController::class, 'update']);
 Route::DELETE('/course/{id}', [CourseController::class, 'destroy']);
+
+Route::get('/batches', [BatchController::class, 'index']);
+Route::get('/batches/create', [BatchController::class, 'create']);
+Route::POST('/batches/create', [BatchController::class, 'store']);
+Route::get('/batches/{id}', [BatchController::class, 'edit']);
+Route::PATCH('/batches/{id}', [BatchController::class, 'update']);
+Route::DELETE('/batches/{id}', [BatchController::class, 'destroy']);
+Route::get('/enrollments', [EnrolmentController::class, 'index']);
+Route::get('/enrollments/create', [EnrolmentController::class, 'create']);
+Route::get('/enrollments/{id}/edit', [EnrolmentController::class, 'edit']);
+Route::post('/enrollments/create', [EnrolmentController::class, 'store']);
+Route::patch('/enrollments/{id}', [EnrolmentController::class, 'update']);
+Route::get('/enrollments/{id}', [EnrolmentController::class, 'show']);
+Route::Delete('/enrollments/{id}', [EnrolmentController::class, 'destroy']);
 // Route::get('/create', [StudentController::class, 'create']);
 // Route::post('create', [StudentController::class, 'store']);
 // Route::get("/show_student/{{'id'}}", [StudentController::class, 'display']);
