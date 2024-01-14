@@ -6,7 +6,7 @@
           <h2>Laravel 10 Crud</h2>
           </div>
           <div class="card-body">
-            <a href="{{url('/payments/create')}}" class="btn btn-success btn-sm" title="Add new Student"><i class="fa fa-plus" area-hidden="true">Batch Registration</i></a>
+            <a href="{{url('/payments/create')}}" class="btn btn-success btn-sm" title="Add new Student"><i class="fa fa-plus" area-hidden="true">Payment Registration</i></a>
             <br />
             <hr />
             <div class="table-responsive">
@@ -14,9 +14,9 @@
                 <thead>
                   <tr>
                       <th>s/n</th>
-                      <th> Name</th>
-                      <th>Course</th>
-                      <th>Start Date</th>
+                      <th> Enrollment ID</th>
+                      <th>Paid Date</th>
+                      <th>Amount</th>
                       <th>Action</th>
                   </tr>
                 </thead>
@@ -25,9 +25,9 @@
                   <tr>
 
                       <td>{{$loop->iteration}}</td>
-                      <td>{{$payment->name}}</td>
-                      <td>{{$payment->course->name}}</td>
-                      <td>{{$payment->start_date}}</td>
+                      <td>{{$payment->enrollment->enrol_no}}</td>
+                      <td>{{$payment->paid_date}}</td>
+                      <td>{{$payment->amount}}</td>
 
                       <td>
                     

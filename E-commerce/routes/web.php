@@ -7,6 +7,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\EnrolmentController;
+use App\Http\Controllers\PaymentController;
 
 
 /*
@@ -59,6 +60,14 @@ Route::post('/enrollments/create', [EnrolmentController::class, 'store']);
 Route::patch('/enrollments/{id}', [EnrolmentController::class, 'update']);
 Route::get('/enrollments/{id}', [EnrolmentController::class, 'show']);
 Route::Delete('/enrollments/{id}', [EnrolmentController::class, 'destroy']);
+
+Route::get('/payments', [PaymentController::class, 'index']);
+Route::get('/payments/create', [PaymentController::class, 'create']);
+Route::post('/payments/create', [PaymentController::class, 'store']);
+Route::get('/payments/{id}', [PaymentController::class, 'show']);
+Route::get('/payments/{id}/edit', [PaymentController::class, 'edit']);
+Route::patch('/payments/{id}', [PaymentController::class, 'update']);
+Route::delete('/payments/{id}', [PaymentController::class, 'destroy']);
 // Route::get('/create', [StudentController::class, 'create']);
 // Route::post('create', [StudentController::class, 'store']);
 // Route::get("/show_student/{{'id'}}", [StudentController::class, 'display']);

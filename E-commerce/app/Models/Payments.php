@@ -13,7 +13,7 @@ class Payments extends Model
     use HasFactory;
 
 
-    function enrollments()
+    function enrollment()
     {
         return $this->belongsTo(Enrollment::class);
     }

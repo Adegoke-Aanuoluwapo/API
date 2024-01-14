@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Payments;
+use App\Models\Enrollment;
 class PaymentController extends Controller
 {
     /**
@@ -13,7 +14,8 @@ class PaymentController extends Controller
     public function index()
     {
         //
-        return view('payments.index');
+        $payments = Payments::all();
+        return view('payments.index', compact('payments'));
     }
 
     /**
@@ -22,6 +24,8 @@ class PaymentController extends Controller
     public function create()
     {
         //
+        $enrollments = Enrollment::pluck('enrol_no', 'id');
+        return view('payments.create', compact('enrollments'));
     }
 
     /**
@@ -30,6 +34,9 @@ class PaymentController extends Controller
     public function store(Request $request)
     {
         //
+        $input = $request->all();
+         Payments::create($input);
+         return redirect('payments');
     }
 
     /**
@@ -37,7 +44,8 @@ class PaymentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $payment = Payments::find($id);
+        return view('payments.show',compact('payment'));
     }
 
     /**
@@ -46,6 +54,9 @@ class PaymentController extends Controller
     public function edit(string $id)
     {
         //
+        $payment = Payments::find($id);
+        $enrollments = Enrollment::pluck('enrol_no', 'id');
+        return view('payments.edit', compact('payment', 'enrollments'));
     }
 
     /**
@@ -53,7 +64,11 @@ class PaymentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $payment =Payments::find($id);
+        // $input =$request->all();
+        // $payment->update($input);
+        $payment->update($request->all());
+        return redirect('payments');
     }
 
     /**
@@ -61,6 +76,8 @@ class PaymentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $payment=Payments::find($id);
+        $payment->delete();
+        return redirect('payments');
     }
 }
