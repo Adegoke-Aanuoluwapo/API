@@ -25,9 +25,9 @@ class EnrolmentController extends Controller
     public function create()
     {
         //
-        $batch = Batch::pluck('name', 'id');
-        $student = Student::pluck('name', 'id');
-        return view('enrollments/create', compact('batch', 'student'));
+        $batches = Batch::pluck('name', 'id');
+        $students = Student::pluck('name', 'id');
+        return view('enrollments/create', compact('batches', 'students'));
     }
 
     /**

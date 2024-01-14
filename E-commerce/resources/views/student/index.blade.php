@@ -6,7 +6,7 @@
           <h2>Laravel 10 Crud</h2>
           </div>
           <div class="card-body">
-            <a href="{{url('/create')}}" class="btn btn-success btn-sm" title="Add new Student"><i class="fa fa-plus" area-hidden="true">Student Application</i></a>
+            <a href="{{url('/student/create')}}" class="btn btn-success btn-sm" title="Add new Student"><i class="fa fa-plus" area-hidden="true">Student Application</i></a>
             <br />
             <hr />
             <div class="table-responsive">

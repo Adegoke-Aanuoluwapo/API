@@ -9,10 +9,15 @@
   <label for="">Enrol Number</label><br>
   <input type="text" name="enrol_no" id="name" class="form-control"><br>
    <label for="">Batch ID</label><br>
-  <input type="tel" name="batch_id" id="address" class="form-control"><br>
+   <select name="batch_id" id="address" class="form-control">
+    @foreach($batches as $id => $name)
+    <option value="{{$id}}">{{$name}}</option>
+    @endforeach
+   </select>
+  <br>
    <label for="">Student ID</label><br>
  <select name="student_id" id="" class="form-control">
-  @foreach( $student as $id => $name)
+  @foreach( $students as $id => $name)
   <option value='{{$id}}'> {{$name}}</option>
   @endforeach
  </select>
