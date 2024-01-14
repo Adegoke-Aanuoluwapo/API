@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Payments;
 class PaymentController extends Controller
 {
     /**
@@ -13,6 +13,7 @@ class PaymentController extends Controller
     public function index()
     {
         //
+        return view('payments.index');
     }
 
     /**
