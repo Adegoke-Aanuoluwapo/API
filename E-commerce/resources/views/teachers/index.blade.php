@@ -24,7 +24,7 @@
                  @foreach($teachers as $teacher)
                   <tr>
 
-                      <td>{{$teacher->id}}</td>
+                      <td>{{$loop->iteration}}</td>
                       <td>{{$teacher->name}}</td>
                       <td>{{$teacher->address}}</td>
                       <td>{{$teacher->mobile}}</td>
@@ -45,6 +45,7 @@
                    @endforeach
                 </tbody>
               </table>
+              {{$teachers->links()}}
             </div>
           </div>
         </div>

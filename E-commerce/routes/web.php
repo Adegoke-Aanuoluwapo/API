@@ -8,7 +8,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\EnrolmentController;
 use App\Http\Controllers\PaymentController;
-
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +68,9 @@ Route::get('/payments/{id}', [PaymentController::class, 'show']);
 Route::get('/payments/{id}/edit', [PaymentController::class, 'edit']);
 Route::patch('/payments/{id}', [PaymentController::class, 'update']);
 Route::delete('/payments/{id}', [PaymentController::class, 'destroy']);
+
+
+Route::get('/report/report1/{pid}', [ReportController::class, 'report1']);
 // Route::get('/create', [StudentController::class, 'create']);
 // Route::post('create', [StudentController::class, 'store']);
 // Route::get("/show_student/{{'id'}}", [StudentController::class, 'display']);
