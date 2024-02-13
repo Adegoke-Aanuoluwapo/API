@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Login;
+use App\Http\Controllers\RegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +18,9 @@ use App\Http\Controllers\Login;
 
 Route::get('/', [Login::class, 'index']
 );
+Route::get('/register', [RegisterController::class, 'index']
+);
 
 
-require __DIR__.'/auth.php';
+
+//require __DIR__.'/auth.php';
