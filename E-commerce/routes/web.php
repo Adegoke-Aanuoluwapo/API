@@ -9,6 +9,8 @@ use App\Http\Controllers\BatchController;
 use App\Http\Controllers\EnrolmentController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\BranchController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,10 @@ Route::get('/', function () {
 });
 // Route::get('/edit/{"id"}', [StudentController::class, 'edit']);
 Route::resource('/student', StudentController::class);
+Route::get('/branch', [BranchController::class, 'index']);
+Route::get('/registerstudent', [BranchController::class, 'signup']);
+
+
 Route::get('/teacher', [TeacherController::class, 'index']);
 Route::get('/teacher/create', [TeacherController::class, 'create']);
 Route::post('/teacher/create', [TeacherController::class, 'store']);
