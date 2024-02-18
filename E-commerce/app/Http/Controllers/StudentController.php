@@ -83,18 +83,18 @@ class StudentController extends Controller
         return redirect('student')->with('flash_message', 'Student deleted!');
     }
 
-    public function display($id){
-        // try{
-            $student = Student::find($id);
-            \Log::info($student);
-        // }
-        // except($e->message){
+    // public function display($id){
+    //     // try{
+    //         $student = Student::find($id);
+    //         \Log::info($student);
+    //     // }
+    //     // except($e->message){
 
-        // };
+    //     // };
         
         
 
-    }
+    // }
 
 
 }

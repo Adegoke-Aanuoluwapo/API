@@ -83,6 +83,7 @@ div.content {
          <div class="sidebar">
               <a class="active" href="{{url('/')}}">Home</a>
               <a href="{{url('/student')}}">Student</a>
+              <a href="{{url('/branch')}}">Student</a>
               <a href="{{url('/teacher')}}">Teachers</a>
               <a href="{{url('/course')}}">Courses</a>
               <a href="{{url('/batches')}}">Batches</a>

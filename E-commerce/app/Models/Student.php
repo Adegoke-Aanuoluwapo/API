@@ -10,6 +10,6 @@ class Student extends Model
     // 
          protected   $table='students';
          protected    $primaryKey='id';
-        protected $fillable=['name', 'address', 'mobile'];
+        protected $fillable=['name', 'guardian','phone','address', 'mobile','school', 'department', 'subtaken', 'diffsub','intresub','intended_school', 'jamb_comb'];
             use HasFactory;
 }
