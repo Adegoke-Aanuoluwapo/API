@@ -34,7 +34,8 @@ Route::get('/', function () {
 Route::resource('/student', StudentController::class);
 Route::get('/branch', [BranchController::class, 'index']);
 Route::get('/registerstudent', [BranchController::class, 'signup']);
-Route::get('/registstudent', [BranchController::class, 'store']);
+Route::get('/branchlogin', [BranchController::class, 'login']);
+Route::POST('/registstudent', [BranchController::class, 'store']);
 
 
 Route::get('/teacher', [TeacherController::class, 'index']);

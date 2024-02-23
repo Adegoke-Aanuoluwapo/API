@@ -20,6 +20,7 @@ Route::get('/', [Login::class, 'index']
 );
 Route::get('/register', [RegisterController::class, 'index']
 );
+Route::post('/register/student', [RegisterController::class, 'store']);
 
 
 

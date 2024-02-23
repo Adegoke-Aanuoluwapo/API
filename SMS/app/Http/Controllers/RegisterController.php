@@ -29,7 +29,24 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:6',
+        ]);
+
+        // Create a new user instance
+
         $student = new Register;
+        $student->firstname = $validatedData['firstname'];
+        $student->lastname = $validatedData['lastname'];
+        $student->email = $validatedData['email'];
+        $student->password = bcrypt($validatedData['password']); // Encrypt the password
+
+        // Save the user to the database
+        $student->save();
+        return response()->json(['message' => 'User created successfully'], 201);
     }
 
     /**

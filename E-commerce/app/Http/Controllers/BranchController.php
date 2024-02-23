@@ -10,7 +10,7 @@ class BranchController extends Controller
 {
     //
     public function index(){
-        return view('branch');
+        return view('branchtutors.branch');
     }
 
     public function signup(){
@@ -22,5 +22,8 @@ class BranchController extends Controller
         Student::create($input);
         return redirect('student')->with('flash_message', 'Student added successfully');
 
+    }
+    public function login(){
+        return view('branchtutors.login');
     }
 }

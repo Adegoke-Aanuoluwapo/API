@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FirstController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,12 @@ Route::get('/', function () {
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
+});
+Route::get('/admin/dashboard2', function () {
+    return view('admin.branch');
+});
+Route::get('/admin/admin/list', [FirstController::class, 'index']
+);
+Route::get('/admin/play', function () {
+    return ('You are welcome');
 });
