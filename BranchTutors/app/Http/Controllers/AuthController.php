@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
 class AuthController extends Controller
 {
     public function loadRegister(){
@@ -13,10 +15,11 @@ class AuthController extends Controller
 
 
     public function studentRegister(Request $request){
-        $input = $request->validate(['name' => 'string|required|min:2',
+        $request->validate(['name' => 'string|required|min:2',
+            'email' => 'string|required|min:4',
             'password'=> 'string|required|min:2',
-            'email'=> 'string|required|confirmed|min:4',
-            'guardian' => 'string|required|confirmed|min:4' ,
+           
+            'guardian' => 'string|required|min:4' ,
             
             'phone' => 'string|required|max:11|unique:users',
             'address' => 'string|required|min:2',
@@ -30,8 +33,55 @@ class AuthController extends Controller
             'jamb_comb' => 'string|required|min:2'
     ]);
         $user = new User;
+        $user->name =$request->name;
+        $user->email =$request->email;
         $user->password =Hash::make($request->password);
-        User::create($input);
-        return redirect('student')->with('flash_message', 'Student added successfully');
+        $user->guardian  =$request->guardian;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->mobile = $request->mobile;
+        $user->school = $request->school;
+        $user->department = $request->department;
+        $user->subtaken = $request->subtaken;
+        $user->diffsub = $request->diffsub;
+        $user->intresub = $request->intresub;
+        $user->intended_school = $request->intended_school;
+        $user->jamb_comb = $request->jamb_comb;
+        
+        $user->save();
+        
+        return back()->with('success', 'Student added successfully');
+    }
+    
+    public function loadLogin(){
+        return view('login');
+    }
+
+    public function userLogin(Request $request){
+        $request->validate([
+            'email'=>'string|required|email',
+            'password'=>'string|required'
+        ]);
+        $userCredentials =$request->only('email', 'password');
+        
+        if(Auth::attempt($userCredentials)){
+            if(Auth::user()->is_admin == 1){
+                return redirect('/admin/dashboard')->with('redirect', 'You are welcome');
+                        }
+                else{
+                return redirect('/dashboard')->with('redirect', 'You are welcome');
+                }
+        }
+        else{
+            return back()->with('error', 'Username & Password not  correct');
+        }
+    }
+
+    public function loadAdminDashboard(){
+        return view('admin.dashboard');
+    }
+
+    public function loadDashboard(){
+        return view('dashboard');
     }
 }

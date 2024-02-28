@@ -18,4 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/register', [AuthController::class,'loadRegister']);
-Route::post('/register', [AuthController::class,'studentRegister'])->name('studentRegister');
+Route::post('/studentRegister', [AuthController::class,'studentRegister'])->name('studentRegister');
+Route::get(
+    '/login',
+    [AuthController::class, 'loadLogin']
+);
+Route::Post('/loginUser',[AuthController::class, 'userLogin']
+);
+Route::post('/logout',[AuthController::class, 'logout']
+);
+Route::get('/dashboard', [AuthController::class, 'loadDashboard']);
+Route::get('/admin/dashboard', [AuthController::class, 'loadAdminDashboard'] );

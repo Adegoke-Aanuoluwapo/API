@@ -15,8 +15,21 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->boolean('is_admin')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('guardian');
+            $table->string('phone');
+            $table->string('address');
+            $table->string('mobile');
+            $table->string('school');
+            $table->string('department');
+            $table->string('subtaken');
+            $table->string('diffsub');
+            $table->string('intresub');
+            $table->string('intended_school');
+            $table->string('jamb_comb');
+          
             $table->rememberToken();
             $table->timestamps();
         });

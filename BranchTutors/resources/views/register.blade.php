@@ -1,24 +1,6 @@
 @extends('layouts/layout-common')
 
-<!doctype html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="msapplication-TileColor" content="#0E0E0E">
-    <meta name="template-color" content="#0E0E0E">
-    <link rel="manifest" href="manifest.json" crossorigin>
-    <meta name="msapplication-config" content="browserconfig.xml">
-    <meta name="description" content="Index page">
-    <meta name="keywords" content="index, page">
-    <meta name="author" content="">
-    <link rel="shortcut icon" type="image/x-icon" href="homepage/assets/imgs/template/favicon.svg">
-    <title>Agon - Multipurpose Agency HTML Template</title>
-    <script defer="defer" src="homepage/assets/js/app.40ee121.bundle.js"></script>
-    <link href="homepage/assets/css/app.2afad0c.bundle.css" rel="stylesheet">
-  </head>
+@extends('layouts/header')
 
   <body>
     <div id="preloader-active">
@@ -39,11 +21,18 @@
               <h1 class="text-heading-3 mb-50 text-center">Register with us</h1>
              
               <div class="box-form-signup mb-200">
+              @if($errors->any())
+                  @foreach ($errors->all() as  $error)
+                     <p style="color:red;">{{$error}}<br></p>
+                  @endforeach 
+                      
+              @endif
                <form action="{{url('/studentRegister')}}" method="post">
                  @csrf
                 <div class="form-group"><input class="form-control" placeholder="Your name *" name="name"></div>
-                 <div class="form-group"><input type="password" class="form-control" placeholder="Your Password *" name="password"></div>
+               
                   <div class="form-group"><input class="form-control" placeholder="Your email *" name="email"></div>
+                    <div class="form-group"><input type="password" class="form-control" placeholder="Your Password *" name="password"></div>
                 <div class="form-group"><input class="form-control" placeholder="Guardian name *" name="guardian"></div>
                 <div class="form-group"><input class="form-control" placeholder="Guardian phone *" name="phone"></div>
                 <div class="form-group"><input class="form-control" placeholder="Address *" name="address"></div>
@@ -60,6 +49,10 @@
                
               </div>
               </form>
+  
+              @if(Session::has('success'))
+              <p style="color: green">{{Session::get( 'success' ) }}</p>
+              @endif
             </div>
           </div>
           {{-- <div class="images-lists">
@@ -143,24 +136,4 @@
         </div>
       </div>
     </footer> --}}
-    <script src="homepage/assets/js/vendors/modernizr-3.6.0.min.js"></script>
-    <script src="homepage/assets/js/vendors/jquery-3.6.0.min.js"></script>
-    <script src="homepage/assets/js/vendors/jquery-migrate-3.3.0.min.js"></script>
-    <script src="homepage/assets/js/vendors/bootstrap.bundle.min.js"></script>
-    <script src="homepage/assets/js/vendors/waypoints.js"></script>
-    <script src="homepage/assets/js/vendors/wow.js"></script>
-    <script src="homepage/assets/js/vendors/magnific-popup.js"></script>
-    <script src="homepage/assets/js/vendors/perfect-scrollbar.min.js"></script>
-    <script src="homepage/assets/js/vendors/select2.min.js"></script>
-    <script src="homepage/assets/js/vendors/isotope.js"></script>
-    <script src="homepage/assets/js/vendors/scrollup.js"></script>
-    <script src="homepage/assets/js/vendors/counterup.js"></script>
-    <script src="homepage/assets/js/vendors/slick.js"></script>
-    <script src="homepage/assets/js/vendors/jquery.elevatezoom.js"></script>
-    <script src="homepage/assets/js/vendors/swiper-bundle.min.js"></script>
-    <script src="homepage/assets/js/vendors/noUISlider.js"></script>
-    <script src="homepage/assets/js/vendors/slider.js"></script>
-    <script src="homepage/assets/js/main.js?v=1.0"></script>
-  </body>
-
-</html>
+    @extends('layouts/script')
