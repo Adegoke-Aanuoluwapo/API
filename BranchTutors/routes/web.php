@@ -27,5 +27,11 @@ Route::Post('/loginUser',[AuthController::class, 'userLogin']
 );
 Route::post('/logout',[AuthController::class, 'logout']
 );
-Route::get('/dashboard', [AuthController::class, 'loadDashboard']);
-Route::get('/admin/dashboard', [AuthController::class, 'loadAdminDashboard'] );
+
+Route::group(['middleware'=>['web', 'checkAdmin']],function(){
+    Route::get('/admin/dashboard', [AuthController::class, 'loadAdminDashboard']);
+});
+
+Route::group(['middleware' => ['web', 'checkStudent']], function () {
+    Route::get('/dashboard', [AuthController::class, 'loadDashboard']);
+});
