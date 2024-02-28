@@ -27,32 +27,54 @@
                   @endforeach 
                       
               @endif
+
+              @if(Session::has('success'))
+              <p style="color: green">{{Session::get( 'success' ) }}</p>
+              @endif
                <form action="{{url('/studentRegister')}}" method="post">
                  @csrf
                 <div class="form-group"><input class="form-control" placeholder="Your name *" name="name"></div>
                
                   <div class="form-group"><input class="form-control" placeholder="Your email *" name="email"></div>
                     <div class="form-group"><input type="password" class="form-control" placeholder="Your Password *" name="password"></div>
+                     
+
+                    <div class="form-group">
+                        <select class="form-control" name="sex" style="border: 1px solid gray">
+                            <option value="" selected disabled>Select Gender</option>
+                            <option value="MALE">MALE</option>
+                            <option value="FEMALE">FEMALE</option>
+                           
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
                 <div class="form-group"><input class="form-control" placeholder="Guardian name *" name="guardian"></div>
                 <div class="form-group"><input class="form-control" placeholder="Guardian phone *" name="phone"></div>
                 <div class="form-group"><input class="form-control" placeholder="Address *" name="address"></div>
                 <div class="form-group"><input class="form-control" placeholder="Your phone *" name="mobile"></div>
                 <div class="form-group"><input class="form-control" placeholder="School *" name="school"></div>
-                <div class="form-group"><input class="form-control" placeholder="Department *" name="department"></div>
-                <div class="form-group"><textarea class="form-control" placeholder="Subject taken *" name="subtaken"></textarea></div>
-                 <div class="form-group"><textarea class="form-control" placeholder="Difficult Subject  -list as many as you can*" name="diffsub"></textarea></div>
-                <div class="form-group"><textarea class="form-control" placeholder="Interesting Subject  *" name="intresub"></textarea></div>
+                <div class="form-group" style="border: 1px solid gray">
+                  <select class="form-control" name="department">
+                    <option value="" selected disabled>Select department</option>
+                    <option value="SCIENCE">SCIENCE</option>
+                    <option value="COMMERCIAL">COMMERCIAL</option>
+                    <option value="ART">ART</option>
+                           
+                            <!-- Add more options as needed -->
+                  </select>
+                </div>
+                <div class="form-group" style="border: 1px solid gray"><textarea class="form-control" placeholder="Subject taken *" name="subtaken"></textarea></div>
+                 <div class="form-group" style="border: 1px solid gray"><textarea class="form-control" placeholder="Difficult Subject  -list as many as you can*" name="diffsub"></textarea></div>
+                <div class="form-group"><textarea class="form-control" placeholder="Interesting Subject  *" name="intresub" style="border: 1px solid gray"></textarea></div>
                 <div class="form-group"><input class="form-control" placeholder="Intended School *" name="intended_school"></div>
-                 <div class="form-group"><textarea class="form-control" placeholder="Jamb Combination *" name="jamb_comb"></textarea></div>
+                 <div class="form-group" style="border: 1px solid gray"><textarea class="form-control" placeholder="Jamb Combination *" name="jamb_comb"></textarea></div>
                 
                 <div class="form-group"><button type="submit" class="btn btn-green-full text-heading-6">Continue</button></div>
                
               </div>
               </form>
   
-              @if(Session::has('success'))
-              <p style="color: green">{{Session::get( 'success' ) }}</p>
-              @endif
+              
             </div>
           </div>
           {{-- <div class="images-lists">

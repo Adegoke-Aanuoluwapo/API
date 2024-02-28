@@ -13,7 +13,7 @@
     <meta name="keywords" content="index, page">
     <meta name="author" content="">
     <link rel="shortcut icon" type="image/x-icon" href="homepage/assets/imgs/template/favicon.svg">
-    <title>Agon - Multipurpose Agency HTML Template</title>
+    <title>Branch Tutor</title>
     <script defer="defer" src="homepage/assets/js/app.40ee121.bundle.js"></script>
     <link href="homepage/assets/css/app.2afad0c.bundle.css" rel="stylesheet">
   </head>

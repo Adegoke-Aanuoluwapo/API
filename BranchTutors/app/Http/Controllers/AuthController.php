@@ -18,7 +18,7 @@ class AuthController extends Controller
         $request->validate(['name' => 'string|required|min:2',
             'email' => 'string|required|min:4',
             'password'=> 'string|required|min:2',
-           
+            'sex' => 'string|required|min:4',
             'guardian' => 'string|required|min:4' ,
             
             'phone' => 'string|required|max:11|unique:users',
@@ -36,6 +36,7 @@ class AuthController extends Controller
         $user->name =$request->name;
         $user->email =$request->email;
         $user->password =Hash::make($request->password);
+        $user->sex = $request->sex;
         $user->guardian  =$request->guardian;
         $user->phone = $request->phone;
         $user->address = $request->address;
@@ -73,15 +74,22 @@ class AuthController extends Controller
                 }
         }
         else{
-            return back()->with('error', 'Username & Password not  correct');
+            return back()->with('error', 'Username & Password is incorrect ');
         }
     }
 
     public function loadAdminDashboard(){
-        return view('admin.dashboard');
+        $students = User::where('is_admin', 0)->count();
+        return view('admin.dashboard', ['students' =>$students]);
     }
 
     public function loadDashboard(){
-        return view('dashboard');
+        return view('student.dashboard');
+    }
+
+    public function logout(Request $request){
+        $request->session()->flush();
+        Auth::logout();
+        return redirect('/login');
     }
 }
